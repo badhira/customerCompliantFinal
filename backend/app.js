@@ -1,48 +1,53 @@
-<<<<<<< HEAD
-const express = require('express')
-const cors = require('cors');
+//importing modules
+var express = require("express");
+var mongoose = require("mongoose");
+var cors = require("cors");
 var bodyparser = require('body-parser');
-var app = new express();
+var path = require('path');
 
-app.use(cors());
-app.use(bodyparser.json());
-username = "admin"
-password = "1234"
 
-app.post('/adminLogin', (req, res) => {
-    let userData = req.body
+var app = express();
 
-    if (!username) {
-        res.status(401).send('invalid Username')
-    } else if (password !== userData.password) {
-        res.status(401).send('Invalid password')
-    } else {
-        res.status(200).send()
+const route = require('./routes/route')
+
+//connect to mongodb
+mongoose.connect('mongodb://localhost:27017/customerlist');
+
+//on connection
+mongoose.connection.on('connected', () => {
+
+    console.log('connected to database mongodb @27017');
+});
+
+mongoose.connection.on('error', (err) => {
+    if (err) {
+        console.log('error in Database connection:' + err);
     }
+});
 
+//post no
+const port = 3000;
 
-=======
-const express = require('express')
-const cors = require('cors');
-var bodyparser = require('body-parser');
-var app = new express();
-
+//adding middleware-cors
 app.use(cors());
+
+
+//body-parser
 app.use(bodyparser.json());
-username = "admin"
-password = "1234"
 
-app.post('/adminLogin', (req, res) => {
-    let userData = req.body
+//static files
+app.use(express.static(path.join(__dirname, 'public')));
 
-    if (!username) {
-        res.status(401).send('invalid Username')
-    } else if (password !== userData.password) {
-        res.status(401).send('Invalid password')
-    } else {
-        res.status(200).send()
-    }
+//routes
+app.use('/api', route);
+
+//testing server
+
+app.get('/', (req, res) => {
+    res.send('footbar');
+})
 
 
->>>>>>> e9e8931f4f6e4c95be830fde50fb3a4fb25f6a16
+app.listen(port, () => {
+    console.log('server started at port:' + port)
 })
