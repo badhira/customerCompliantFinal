@@ -12,6 +12,7 @@ import { ServiceAgentComponent } from './components/service-agent/service-agent.
 import { ViewCustomerComponent } from './components/view-customer/view-customer.component';
 import { ViewServiceAgentComponent } from './components/view-service-agent/view-service-agent.component';
 
+
 const routes: Routes = [{path:'',redirectTo:'/admin',pathMatch:'full'},
 { path:'admin',component:AdminComponent},
   {path:'addCustomer',component:AddCustomerComponent},

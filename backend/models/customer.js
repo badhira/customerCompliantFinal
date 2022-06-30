@@ -30,4 +30,5 @@ const CustomerSchema = mongoose.Schema({
         required: true
     }
 });
-const customer = module.exports = mongoose.model('Customer', CustomerSchema);
+const customer = mongoose.model('Customer', CustomerSchema);
+module.exports = customer

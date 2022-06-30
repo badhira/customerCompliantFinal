@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import{HttpClient} from '@angular/common/http'
+import { Subscriber } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   loginUser(user:any){
-    return this.http.post("http://localhost:3000/adminLogin",user)
-    .subscribe((data)=>{
-      console.log('success')
-    })
+   
+    return this.http.post<any>("http://localhost:3000/customer",user)
+    
   }
   constructor(private http:HttpClient) { }
 }

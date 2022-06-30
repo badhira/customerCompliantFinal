@@ -31,7 +31,7 @@
 </div>
 
 
-<!-- cards -->
+<!-- cards
 <div class="container mt-3">
     <div class="row">
         <div class="col-md-6">
@@ -44,11 +44,11 @@
                         <div class="col-sm-7 ">
                             <ul class="list-group">
                                 <li class="list-group-item">Name :
-                                    <span class="fw-bold">Name</span></li>
+                                    <span class="fw-bold"></span></li>
                                 <li class="list-group-item">Email :
-                                    <span class="fw-bold">Email</span></li>
+                                    <span class="fw-bold"></span></li>
                                 <li class="list-group-item">Mobile :
-                                    <span class="fw-bold">Mobile</span></li>
+                                    <span class="fw-bold"></span></li>
                             </ul>
 
                         </div>
@@ -76,4 +76,46 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+<div style="text-align:center;">
+    <button type="button" class="btn btn-primary">
+    <i class="bi bi-plus-lg">Create</i></button>
+</div>
+
+
+<!-- table -->
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile No</th>
+            <th scope="col">Product Id</th>
+            <th scope="col">Product Type</th>
+            <th scope="col">Compliant</th>
+            <th scope="col">Invoice Url</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let items of customerArray">
+            <td>{{items.name}}</td>
+            <td>{{items.email}}</td>
+            <td>{{items.mobileNo}}</td>
+            <td>{{items.productId}}</td>
+            <td>{{items.productType}}</td>
+            <td>{{items.compliant}}</td>
+            <td>{{items.invoiceUrl}}</td>
+            <td>
+                <button class="btn btn-primary"> Edit
+                    <i class="bi bi-pencil-square" ></i>
+                </button>
+                <button class="btn btn-danger">Delete
+                    <i class="bi bi-archive" ></i>
+                </button>
+            </td>
+        </tr>
+
+
+    </tbody>
+</table>

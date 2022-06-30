@@ -1,53 +1,22 @@
-//importing modules
-var express = require("express");
-var mongoose = require("mongoose");
-var cors = require("cors");
-var bodyparser = require('body-parser');
-var path = require('path');
+const express = require('express');
+const app = express();
+const empRouter = require('./routes/customer.route');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+var cors = require('cors');
+
+app.use(cors())
+app.use(bodyParser.json());
+//mongoose
+mongoose.connect('mongodb+srv://userone:userone@cluster0.cidjqus.mongodb.net/emp_db?retryWrites=true&w=majority')
+    .then((res) => {
+        console.log('database is connected successfully')
+    }).catch((err) => {
+        console.log('oops something went wrong while connecting' + err)
+    })
 
 
-var app = express();
-
-const route = require('./routes/route')
-
-//connect to mongodb
-mongoose.connect('mongodb://localhost:27017/customerlist');
-
-//on connection
-mongoose.connection.on('connected', () => {
-
-    console.log('connected to database mongodb @27017');
-});
-
-mongoose.connection.on('error', (err) => {
-    if (err) {
-        console.log('error in Database connection:' + err);
-    }
-});
-
-//post no
-const port = 3000;
-
-//adding middleware-cors
-app.use(cors());
-
-
-//body-parser
-app.use(bodyparser.json());
-
-//static files
-app.use(express.static(path.join(__dirname, 'public')));
-
-//routes
-app.use('/api', route);
-
-//testing server
-
-app.get('/', (req, res) => {
-    res.send('footbar');
-})
-
-
-app.listen(port, () => {
-    console.log('server started at port:' + port)
+app.use('/customer', empRouter)
+app.listen(5000, () => {
+    console.log('server is listening on port 5000...')
 })
