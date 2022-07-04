@@ -7,8 +7,10 @@ import { Subscriber } from 'rxjs';
 })
 export class AuthService {
   loginUser(user:any){
-   
-    return this.http.post<any>("http://localhost:3000/customer",user)
+    return this.http.post<any>("http://localhost:5000/customer/adminLogin",user)
+    .subscribe((data)=>{
+     console.log('success')
+    })
     
   }
   constructor(private http:HttpClient) { }

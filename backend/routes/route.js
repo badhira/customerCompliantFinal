@@ -49,26 +49,26 @@
 //         }
 //     });
 // });
-// username = "admin"
-// password = "1234"
+username = "admin"
+password = "1234"
 
-// router.post('/adminLogin', (req, res, next) => {
+router.post('/adminLogin', jsonParser, (req, res, next) => {
 
-//     let userData = req.body
+    let userData = req.body
 
-//     if (!username) {
-//         res.status(401).send('Invalid Username')
-//     } else
-//     if (password !== userData.password) {
-//         res.status(401).send('Invalid password ')
-//     } else {
-//         let payload = { subject: username + password }
-//         let token = jwt.sign(payload, 'secretKey')
+    if (!username) {
+        res.status(401).send('Invalid Username')
+    } else
+    if (password !== userData.password) {
+        res.status(401).send('Invalid password ')
+    } else {
+        let payload = { subject: username + password }
+        let token = jwt.sign(payload, 'secretKey')
 
-//         res.status(200).send({ token })
-//     }
-// })
+        res.status(200).send({ token })
+    }
+})
 
 
 
-// module.exports = router;
+module.exports = router;

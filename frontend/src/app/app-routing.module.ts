@@ -5,7 +5,6 @@ import { AddServiceAgentComponent } from './components/add-service-agent/add-ser
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 import { EditServiceAgentComponent } from './components/edit-service-agent/edit-service-agent.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ServiceAgentComponent } from './components/service-agent/service-agent.component';
@@ -16,7 +15,7 @@ import { ViewServiceAgentComponent } from './components/view-service-agent/view-
 const routes: Routes = [{path:'',redirectTo:'/admin',pathMatch:'full'},
 { path:'admin',component:AdminComponent},
   {path:'addCustomer',component:AddCustomerComponent},
-  {path:'editCustomer/:customerId',component:EditCustomerComponent},
+  {path:'edit/:id',component:AddCustomerComponent},
   {path:'viewCustomer/:customerId',component:ViewCustomerComponent},
   {path:'addServiceAgent',component:AddServiceAgentComponent},
   {path:'editServiceAgent/:agentId',component:EditServiceAgentComponent},

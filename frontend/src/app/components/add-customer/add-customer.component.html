@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <p class="h3 fw-bold text-danger">Add Customer</p>
+            <p class="h3 fw-bold text-danger">PLEASE REGISTER</p>
             <!-- <p class="fst-italic">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
                 book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was</p> -->
         </div>
@@ -13,46 +13,61 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            <form>
-                <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Name">
+            <form #cusForm="ngForm" (ngSubmit)="cusForm.valid&&onSubmit()">
+                <div class="mb-2 ">
+                    <label for="">NAME</label>
+                    <input type="text " class="form-control " name="name" required #name="ngModel" placeholder=" Name " [(ngModel)]="data.name">
+                    <small class="text-danger " *ngIf="cusForm.submitted&&name.errors?.['required']">First Name Required</small>
                 </div>
 
-                <div class="mb-2">
-                    <input type="email" class="form-control" placeholder="Email">
+                <div class="mb-2 ">
+                    <label for="">EMAIL</label>
+                    <input type="email " class="form-control " placeholder="Email" required #email="ngModel" name="email " [(ngModel)]="data.email ">
+                    <small class="text-danger " *ngIf="cusForm.submitted&&email.errors?.['required']">Email Required</small> </div>
+                <div class="mb-2 ">
+                    <label for="">MOBILE NUMBER</label>
+                    <input type="number " class="form-control " placeholder="Mobile Number " required #mobileNo="ngModel" name="mobileNo " [(ngModel)]="data.mobileNo ">
+                    <small class="text-danger " *ngIf="cusForm.submitted&&mobileNo.errors?.['required']">Mobile Number Required</small>
                 </div>
-                <div class="mb-2">
-                    <input type="number" class="form-control" placeholder="Mobile Number">
+                <div class="mb-2 ">
+                    <label for="">PRODUCT ID</label>
+                    <input type="text " class="form-control " placeholder="Product Id " required #productId="ngModel" name="productId " [(ngModel)]="data.productId ">
+                    <small class="text-danger" *ngIf="cusForm.submitted&&productId.errors?.['required']">Product Id Required</small>
                 </div>
-                <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Product Id">
+                <div class="mb-2 ">
+                    <label for="">PRODUCT TYPE</label>
+                    <input type="text " class="form-control " placeholder="Product Type " required #productType="ngModel" name="productType " [(ngModel)]="data.productType ">
+                    <small class="text-danger" *ngIf="cusForm.submitted&&productType.errors?.['required'] ">Product Type Required</small>
+
                 </div>
-                <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Product Type">
+                <div class="mb-2 ">
+                    <LABel>COMPLIANT</LABel>
+                    <input type="text " class="form-control " placeholder="Compliant " required #compliant="ngModel" name="compliant" [(ngModel)]="data.compliant">
+                    <small class="text-danger" *ngIf="cusForm.submitted&&compliant.errors?.['required'] ">Compliant required</small>
                 </div>
-                <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Compliant">
-                </div>
-                <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Invoice URL">
+                <div class="mb-2 ">
+                    PHOTO
+                    <input type="text" class="form-control " placeholder="invoiceUrl " required #invoiceUrl="ngModel" name="invoiceUrl" [(ngModel)]="data.invoiceUrl ">
+                    <small class="text-danger" *ngIf="cusForm.submitted&&invoiceUrl.errors?.['required'] ">Product Type Required</small>
                 </div>
 
-                <div class="mb-2">
-                    <select class="form-control">
-                        <option value="">Select item</option>
-                        <option value="">Wired</option>
-                        <option value="">Wireless</option>
+
+                <div class="mb-2 ">
+                    <select class="form-control ">
+                        <option value=" ">Select item</option>
+                        <option value=" ">Wired</option>
+                        <option value=" ">Wireless</option>
 
                     </select>
                 </div>
-                <div class="mb-2">
-                    <input class="btn btn-danger" value="Create" type="submit">
-                    <a routerLink="/" class="btn btn-dark ms-2">Close</a>
+                <div class="mb-2 ">
+                    <input class="btn btn-danger" value="Create" name="submit" type="submit">
+                    <a routerLink="/adminLogin" class="btn btn-dark ms-2 ">Close</a>
                 </div>
             </form>
         </div>
-        <div class="col-sm-4">
-            <img src="https://tse1.mm.bing.net/th?id=OIP.ZRUY-9UHpnEUu3_8Kaub6QHaF7&pid=Api&P=0&w=197&h=158" class="contact-img" alt=" ">
+        <div class="col-sm-4 ">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.ZRUY-9UHpnEUu3_8Kaub6QHaF7&pid=Api&P=0&w=197&h=158 " class="contact-img " alt=" ">
         </div>
     </div>
 </div>

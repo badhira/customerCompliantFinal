@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ServiceAgentService } from 'src/app/services/service-agent.service';
 @Component({
   selector: 'app-view-customer',
   templateUrl: './view-customer.component.html',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewCustomerComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private serviceAgent:ServiceAgentService) { }
+  customerArray:any=[]
   ngOnInit(): void {
+  this.serviceAgent.getCustomers().subscribe((res:any)=>{
+  console.log({res})
+  this.customerArray=res.items
+})
   }
+ 
 
 }

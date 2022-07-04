@@ -54,17 +54,17 @@
                         </div>
 
                         <div class="col-sm-1 d-flex flex-column justify-contents-center align-items-center ">
-                            <a class="btn btn-warning my-1 " routerLink="/viewCustomer/:customerId ">
+                            <!-- <a class="btn btn-warning my-1 " routerLink="/viewCustomer/:customerId" (click)="view(items._id)">
                                 <i class="fa fa-eye "></i>
-                            </a>
+                            </a> -->
 
-                            <a class="btn btn-primary my-1 " routerLink="/editCustomer/:customerId ">
+                            <a class="btn btn-primary my-1 " routerLink="/editCustomer/:customerId " (click)="navigateToEdit(items._id)">
                                 <i class="fa fa-pen "></i>
                             </a>
-                            <a class="btn btn-primary my-1 " routerLink="/addCustomer ">
+                            <a class="btn btn-primary my-1 " routerLink="/addCustomer">
                                 <i class="fa fa-plus-circle "></i>
                             </a>
-                            <button class="btn btn-danger my-1 ">
+                            <button class="btn btn-danger my-1 " (click)="delete(items._id)">
                                 <i class="fa fa-trash-alt "></i>
                             </button>
 
@@ -78,10 +78,13 @@
         </div>
     </div>
     <!-- card end -->
-
-    <div style="text-align:center; ">
+    <br>
+    <div style="text-align:center; "><br>
         <button type="button " class="btn btn-primary ">
     <i class="bi bi-plus-lg ">Create</i></button>
+        <a class="btn btn-warning my-1 " routerLink="/viewCustomer/:customerId">
+            <i class="fa fa-eye ">view</i>
+        </a>
     </div>
 
 
@@ -108,10 +111,10 @@
                 <td>{{items.compliant}}</td>
                 <td>{{items.invoiceUrl}}</td>
                 <td>
-                    <button class="btn btn-primary "> Edit
+                    <button class="btn btn-primary " (click)="navigateToEdit(items._id)"> Edit
                     <i class="bi bi-pencil-square " ></i>
                 </button>
-                    <button class="btn btn-danger ">Delete
+                    <button class="btn btn-danger " (click)="delete(items._id)">Delete
                     <i class="bi bi-archive " ></i>
                 </button>
                 </td>
